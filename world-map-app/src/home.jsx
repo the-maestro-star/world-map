@@ -61,7 +61,7 @@ function MapComponent() {
                 Region: ${country.region}<br />
                 Area: ${country.area.toLocaleString()} km²
                 `; // Country Info
-            return info
+            return info;
             
         }
         catch(error){
@@ -83,7 +83,8 @@ function MapComponent() {
            console.error('Failed to fetch countries:', err);
         }
     };
-   
+
+   // Call fetch countries function
     useEffect(
         () => {fetchCountries();}, [] 
     );
@@ -101,8 +102,6 @@ function MapComponent() {
 
                 highlightStyle(e); // style when country is hovered on
 
-                if (target._tooltipTimeout) clearTimeout(target._tooltipTimeout);
-
                 target._tooltipTimeout = setTimeout(async () => {
                     if (!target._isHovered) return;
                     const info = await displayInformation(countryCode);
@@ -115,11 +114,12 @@ function MapComponent() {
                 target._isHovered = false;
 
                 if (target._tooltipTimeout) {
-                    clearTimeout(target._tooltipTimeout);
+                    clearTimeout(target._tooltipTimeout); 
                     target._tooltipTimeout = null;
                 }
 
                 if (!target._tooltipTimeout) {
+                    // Remove tooltip
                     target.closeTooltip();
                     target.unbindTooltip();
                 }
@@ -132,46 +132,50 @@ function MapComponent() {
 
     return (
         <div>
-        <div className = 'navbar'>
-            <Link to="/">Home</Link>
-            <Link to="/trivia">Go to Trivia Page</Link>
-        </div>
+            <div className = 'navbar'>
+                <Link to="/">Home</Link>
+                <Link to="/trivia">Trivia</Link>
+            </div>
         
-        <MapContainer 
-            center={[0, 20]} 
-            zoom={2} //Default zoom
-            minZoom={2} // Min Zoom
-            scrollWheelZoom={true}
-            maxBounds={[[-90, -180], [90, 180]]} //map boundaries
-            maxBoundsViscosity={1.0}
-            worldCopyJump={false}
-            style={{ height: '80vh', width: '80%',position:'absolute', bottom:10, left:90, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-    borderRadius: '10px' }} //width and height of map
-        >  
-        <ResizeMap/>
-        <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            noWrap={true} 
-        />
-         {geoData && (
-        <GeoJSON
-          data={geoData}
-          style={countryStyle}
-          onEachFeature={onEachCountry}
-          
-        />
+            <MapContainer 
+                center={[0, 20]} 
+                zoom={2} //Default zoom
+                minZoom={2} // Min Zoom
+                scrollWheelZoom={true}
+                maxBounds={[[-90, -180], [90, 180]]} //map boundaries
+                maxBoundsViscosity={1.0}
+                worldCopyJump={false}
+                style={{ height: '80vh', width: '80%',position:'absolute', bottom:10, left:90, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                borderRadius: '10px' }} //width and height of map
+            >  
+            
+            <ResizeMap /> 
+            
+            <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                noWrap={true} 
+            />
+            
+            {geoData && (
+            <GeoJSON
+                data={geoData}
+                style={countryStyle}
+                onEachFeature={onEachCountry}
+            />
+            )}
     
-      )}
-
-      </MapContainer>
-      </div>
-  );
+            </MapContainer>
+        </div>
+    );
 }
 
 export default function Home(){
     return(
-        <MapComponent/>
+        <div>
+            <h1 style={{textAlign:'center'}}>World Map</h1>
+            <MapComponent/>
+        </div>
     )
     
 }

@@ -11,26 +11,16 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+h2{
+  font-size: 1.5em;
+  line-height: 1.1;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
+
 
 .navbar {
     display: flex;
@@ -53,7 +43,7 @@ button:focus-visible {
     background-color: transparent; 
     border-radius: 30px;
     color: white;
-    font-family: 'Barlow Condensed', sans-serif;
+   
     text-shadow: 1px 1px black;
     transition: background-color 0.3s; 
 }
@@ -63,4 +53,66 @@ button:focus-visible {
     background-color: rgba(210, 206, 206, 0.5);
 }
 
+.container{
+  display:flex;
+  flex-direction: column;
+  gap:3px;
+  position:absolute;
+  align-items: center;
+  top: 20%;
+  left:35%;
+}
+.container button{
+  color:white;
+  font-family: 'Barlow Condensed', sans-serif ;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 1em 1.5em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color 0.5s, border-color 0.5s;
 
+
+}
+
+.container button:hover{
+  background-color: #0fc7a2;
+  cursor: pointer;
+  border-color: white ;
+}
+
+.question{
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+
+}
+.question img{
+  cursor:pointer
+}
+
+.question button{
+  color:white;
+  font-family: 'Barlow Condensed', sans-serif ;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 1em 1.5em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  transition: background-color 0.5s, border-color 0.5s;
+  margin :5px;
+}
+
+.question button.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+.question button.incorrect {
+  background-color: #f44336;
+  color: white;
+}
