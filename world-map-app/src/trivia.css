@@ -12,6 +12,8 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
   font-family: 'Barlow Condensed', sans-serif;
+  margin: 0.1em;
+
 }
 h2{
   font-size: 1.5em;
@@ -56,7 +58,7 @@ h2{
 .container{
   display:flex;
   flex-direction: column;
-  gap:3px;
+  gap:10px;
   position:absolute;
   align-items: center;
   top: 20%;
@@ -83,7 +85,20 @@ h2{
   border-color: white ;
 }
 
+.button-flex-container{
+  display: flex;
+  flex-direction: row;
+  gap:  10px;
+}
+.button-flex-container button.clicked{
+  background-color: #4caf50;
+  color: white;
+}
+
 .question{
+  position: absolute;
+  top :20%;
+  left: 30%;
   align-items: center;
   display:flex;
   flex-direction: column;
@@ -105,6 +120,11 @@ h2{
   cursor: pointer;
   transition: background-color 0.5s, border-color 0.5s;
   margin :5px;
+}
+.question button:hover{
+  background-color: #0fc7a2;
+  cursor: pointer;
+  border-color: white ;
 }
 
 .question button.correct {

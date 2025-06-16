@@ -65,7 +65,7 @@ function MapComponent() {
             
         }
         catch(error){
-            console.error('An error ocurred', error);
+            console.log('Error', error);
             return 'Information not available';
         }
 
@@ -97,7 +97,13 @@ function MapComponent() {
         layer.on({
             mouseover: (e) => {
                 const target = e.target;
-                const countryCode = feature.properties["ISO3166-1-Alpha-3"];
+                let countryCode;
+                if (feature.properties["ISO3166-1-Alpha-3"] === '-99'){ // Checking for the bad France "ISO3166-1-Alpha-3"
+                    countryCode = 'FRA';
+                }
+                else{
+                 countryCode = feature.properties["ISO3166-1-Alpha-3"];}
+                
                 target._isHovered = true;
 
                 highlightStyle(e); // style when country is hovered on
