@@ -18,6 +18,13 @@ An interactive web application built with React and Leaflet that displays a worl
 - [React Leaflet](https://react-leaflet.js.org/) – React wrapper for Leaflet
 - [REST Countries API](https://restcountries.com/) – For country data and flags
 
+## Screenshots
+![World Map Screenshot](world-map-app/src/static/Screenshot1.png)
+
+![Trivia Screenshot](world-map-app/src/static/Screenshot2.png)
+
+
+
 ## 📦 Installation
 
 ```bash
@@ -25,3 +32,13 @@ git clone https://github.com/the-maestro-star/world-map.git
 cd world-map-app
 npm install
 npm run dev
+```
+## Screenshots
+![World Map Screenshot](world-map-app/src/static/Screenshot1.png)
+
+![Trivia Screenshot](world-map-app/src/static/Screenshot2.png)
+
+
+
+
+
